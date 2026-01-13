@@ -401,9 +401,12 @@ const App = () => {
             {view === 'student_login' && (
                 <LoginScreen 
                     onLogin={(name, email, avatar) => {
-                        const adminEmails = Object.keys(ADMIN_USERS);
-                        const isAdmin = adminEmails.includes(email);
-                        
+                        const isListedAdmin = Object.keys(ADMIN_USERS).includes(email);
+                        const isStaffDomain = email.endsWith('@gobiernodecanarias.org') || email.endsWith('@canariaseducacion.es');
+                        const isStudentCodeEmail = /^\d[ab]\d{1,2}@canariaseducacion\.es$/.test(email);
+
+                        const isAdmin = isListedAdmin || (isStaffDomain && !isStudentCodeEmail);
+
                         setUser({ name, email, avatar, isAdmin });
                         
                         if (status === 'closed' && !isAdmin) {
