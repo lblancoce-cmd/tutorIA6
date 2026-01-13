@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import { User, Topic, HolidayInfo } from './types.ts';
-import { DEFAULT_TOPICS, ADMIN_USERS } from './constants.ts';
+import { User, Topic, HolidayInfo } from './types.tsx';
+import { DEFAULT_TOPICS, ADMIN_USERS } from './constants.tsx';
 import TopicSelector from './components/TopicSelector.tsx';
 import LandingScreen from './components/LandingScreen.tsx';
 import LoginScreen from './components/LoginScreen.tsx';
@@ -14,7 +14,7 @@ import ImageEditor from './components/ImageEditor.tsx';
 import CanaryMap from './components/CanaryMap.tsx';
 import FeedbackWidget from './components/FeedbackWidget.tsx';
 import ThemeToggle from './components/ThemeToggle.tsx';
-import { getHolidayInfo } from './utils/holidays.ts';
+import { getHolidayInfo } from './utils/holidays.tsx';
 import { BellAlertIcon, MegaphoneIcon, StopIcon, HomeIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
 // Inactivity Time in milliseconds (15 minutes)

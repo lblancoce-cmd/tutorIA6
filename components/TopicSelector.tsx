@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { User, Topic, HolidayInfo } from '../types.ts';
+import { User, Topic, HolidayInfo } from '../types.tsx';
 import { ArrowRightOnRectangleIcon, LockClosedIcon, ClockIcon, PaperAirplaneIcon, CheckCircleIcon } from '@heroicons/react/24/solid';
 import ThemeToggle from './ThemeToggle.tsx';
-import { requestAccess, checkUserAccess } from '../utils/classGameLogic.ts';
+import { requestAccess, checkUserAccess } from '../utils/classGameLogic.tsx';
 
 
 interface Props {

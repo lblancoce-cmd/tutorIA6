@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { ClockIcon, ArrowLeftIcon, PuzzlePieceIcon, CpuChipIcon, LanguageIcon, TableCellsIcon, MusicalNoteIcon, TrophyIcon, MapIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/solid';
 import BattleshipGame from './minigames/BattleshipGame.tsx';
@@ -12,8 +13,8 @@ import CanarySports from './minigames/CanarySports.tsx';
 import IslandRacingGame from './minigames/IslandRacingGame.tsx';
 import CanaryExplorer from './minigames/CanaryExplorer.tsx';
 import CollectiveBattleGame from './minigames/CollectiveBattleGame.tsx';
-import { User } from '../types.ts';
-import { checkUnlockCondition } from '../utils/classGameLogic.ts';
+import { User } from '../types.tsx';
+import { checkUnlockCondition } from '../utils/classGameLogic.tsx';
 
 interface Props {
     onBack: () => void;

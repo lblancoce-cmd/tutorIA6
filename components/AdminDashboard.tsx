@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Topic, AuditLogEntry, QuizQuestion } from '../types.ts';
+import { Topic, AuditLogEntry, QuizQuestion } from '../types.tsx';
 import { TrashIcon, PencilIcon, PlusIcon, ArrowLeftOnRectangleIcon, UserGroupIcon, ComputerDesktopIcon, SunIcon, UserIcon, TableCellsIcon, ArrowPathIcon, ArrowsPointingOutIcon, ChevronUpIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, CursorArrowRaysIcon, AcademicCapIcon, HandRaisedIcon, CheckCircleIcon, XCircleIcon, BoltIcon, ArrowsRightLeftIcon, MegaphoneIcon, BellAlertIcon, StopCircleIcon, ExclamationTriangleIcon, PlayCircleIcon } from '@heroicons/react/24/solid';
-import { simulateUnlock, resetClassProgress, getAccessData, approveAccess, revokeAccess, approveAll, revokeAll, GameZoneAccessData } from '../utils/classGameLogic.ts';
+import { simulateUnlock, resetClassProgress, getAccessData, approveAccess, revokeAccess, approveAll, revokeAll, GameZoneAccessData } from '../utils/classGameLogic.tsx';
 import ThemeToggle from './ThemeToggle.tsx';
 
 interface Props {
