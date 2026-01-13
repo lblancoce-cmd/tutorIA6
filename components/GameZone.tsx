@@ -1,19 +1,19 @@
 
 import React, { useState, useEffect } from 'react';
 import { ClockIcon, ArrowLeftIcon, PuzzlePieceIcon, CpuChipIcon, LanguageIcon, TableCellsIcon, MusicalNoteIcon, TrophyIcon, MapIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/solid';
-import BattleshipGame from './minigames/BattleshipGame';
-import BlueBotGame from './minigames/BlueBotGame';
-import HangmanGame from './minigames/HangmanGame';
-import WordSearchGame from './minigames/WordSearchGame';
-import ClassicBoardGames from './minigames/ClassicBoardGames';
-import CanaryPuzzle from './minigames/CanaryPuzzle';
-import CreativeStudio from './minigames/CreativeStudio';
-import CanarySports from './minigames/CanarySports';
-import IslandRacingGame from './minigames/IslandRacingGame';
-import CanaryExplorer from './minigames/CanaryExplorer';
-import CollectiveBattleGame from './minigames/CollectiveBattleGame';
-import { User } from '../types';
-import { checkUnlockCondition } from '../utils/classGameLogic';
+import BattleshipGame from './minigames/BattleshipGame.tsx';
+import BlueBotGame from './minigames/BlueBotGame.tsx';
+import HangmanGame from './minigames/HangmanGame.tsx';
+import WordSearchGame from './minigames/WordSearchGame.tsx';
+import ClassicBoardGames from './minigames/ClassicBoardGames.tsx';
+import CanaryPuzzle from './minigames/CanaryPuzzle.tsx';
+import CreativeStudio from './minigames/CreativeStudio.tsx';
+import CanarySports from './minigames/CanarySports.tsx';
+import IslandRacingGame from './minigames/IslandRacingGame.tsx';
+import CanaryExplorer from './minigames/CanaryExplorer.tsx';
+import CollectiveBattleGame from './minigames/CollectiveBattleGame.tsx';
+import { User } from '../types.ts';
+import { checkUnlockCondition } from '../utils/classGameLogic.ts';
 
 interface Props {
     onBack: () => void;

@@ -1,5 +1,4 @@
-
-import { Topic } from './types';
+import { Topic } from './types.ts';
 
 export const ADMIN_USERS: Record<string, { name: string; password: string }> = {
     'lblacel@canariaseducacion.es': { name: 'Admin 1', password: '003' },
@@ -203,6 +202,14 @@ export const DEFAULT_TOPICS: Topic[] = [
         initialMessage: '¡Epale! Soy Vampy, tu guía de cultura canaria. ¿Quieres saber sobre el gofio, las romerías o el silbo gomero? ¡Dispara!',
         icon: '🇮🇨',
         rewardIcon: '🎉',
+        questions: []
+    },
+    {
+        id: 'interactive_map',
+        title: 'Mapa Interactivo de Canarias',
+        description: 'Explora las islas, sus capitales, monumentos y secretos.',
+        icon: '🗺️',
+        initialMessage: '',
         questions: []
     },
     {

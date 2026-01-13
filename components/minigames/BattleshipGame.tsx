@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 const GRID_SIZE = 5; // 0 to 4
 const TREASURE_COUNT = 3;

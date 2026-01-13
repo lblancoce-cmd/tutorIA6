@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 import { PhotoIcon, ArrowPathIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 const GRID_SIZE = 3; // 3x3 Puzzle
 

@@ -1,5 +1,4 @@
-
-import { HolidayInfo } from '../types';
+import { HolidayInfo } from '../types.ts';
 
 export const getHolidayInfo = (date: Date): HolidayInfo => {
     // Simplified holiday logic

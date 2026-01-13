@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { LockClosedIcon } from '@heroicons/react/24/solid';
-import { ADMIN_USERS } from '../constants';
+import { ADMIN_USERS } from '../constants.ts';
 
 interface Props {
     onLogin: () => void;

@@ -1,20 +1,20 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import { User, Topic, HolidayInfo } from './types';
-import { DEFAULT_TOPICS, ADMIN_USERS } from './constants';
-import TopicSelector from './components/TopicSelector';
-import LandingScreen from './components/LandingScreen';
-import LoginScreen from './components/LoginScreen';
-import AdminLoginScreen from './components/AdminLoginScreen';
-import AdminDashboard from './components/AdminDashboard';
-import AccessDeniedScreen from './components/AccessDeniedScreen';
-import QuizScreen from './components/QuizScreen';
-import GameZone from './components/GameZone';
-import ImageEditor from './components/ImageEditor';
-import FeedbackWidget from './components/FeedbackWidget';
-import ThemeToggle from './components/ThemeToggle';
-import { getHolidayInfo } from './utils/holidays';
+import { User, Topic, HolidayInfo } from './types.ts';
+import { DEFAULT_TOPICS, ADMIN_USERS } from './constants.ts';
+import TopicSelector from './components/TopicSelector.tsx';
+import LandingScreen from './components/LandingScreen.tsx';
+import LoginScreen from './components/LoginScreen.tsx';
+import AdminLoginScreen from './components/AdminLoginScreen.tsx';
+import AdminDashboard from './components/AdminDashboard.tsx';
+import AccessDeniedScreen from './components/AccessDeniedScreen.tsx';
+import QuizScreen from './components/QuizScreen.tsx';
+import GameZone from './components/GameZone.tsx';
+import ImageEditor from './components/ImageEditor.tsx';
+import CanaryMap from './components/CanaryMap.tsx';
+import FeedbackWidget from './components/FeedbackWidget.tsx';
+import ThemeToggle from './components/ThemeToggle.tsx';
+import { getHolidayInfo } from './utils/holidays.ts';
 import { BellAlertIcon, MegaphoneIcon, StopIcon, HomeIcon, XMarkIcon } from '@heroicons/react/24/solid';
 
 // Inactivity Time in milliseconds (15 minutes)
@@ -243,7 +243,7 @@ const EmergencyOverlay: React.FC = () => {
 };
 
 const App = () => {
-    const [view, setView] = useState<'landing' | 'student_login' | 'admin_login' | 'admin_dashboard' | 'topics' | 'quiz' | 'game_zone' | 'denied' | 'image_editor'>('landing');
+    const [view, setView] = useState<'landing' | 'student_login' | 'admin_login' | 'admin_dashboard' | 'topics' | 'quiz' | 'game_zone' | 'denied' | 'image_editor' | 'canary_map'>('landing');
     const [user, setUser] = useState<User | null>(null);
     const [topics, setTopics] = useState<Topic[]>(() => {
         const saved = localStorage.getItem('topics');
@@ -429,8 +429,9 @@ const App = () => {
                             setView('game_zone');
                         } else if (t.id === 'special_image_editor') {
                             setView('image_editor');
-                        }
-                         else {
+                        } else if (t.id === 'interactive_map') {
+                            setView('canary_map');
+                        } else {
                             setView('quiz');
                         }
                     }} 
@@ -472,6 +473,15 @@ const App = () => {
                 />
             )}
             
+            {view === 'canary_map' && user && (
+                <CanaryMap
+                    onBack={() => {
+                        setSelectedTopic(null);
+                        setView('topics');
+                    }}
+                />
+            )}
+
             {user && view !== 'admin_dashboard' && view !== 'denied' && <FeedbackWidget />}
 
             {user && view !== 'landing' && view !== 'denied' && !isHomeView(view, user.isAdmin || false) && (

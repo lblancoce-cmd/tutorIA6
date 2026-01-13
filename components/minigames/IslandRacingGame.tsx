@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { BoltIcon, StarIcon, TrophyIcon, XCircleIcon, MapIcon, ArrowPathIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 // --- EDUCATIONAL DATA ---
 const QUESTIONS = [

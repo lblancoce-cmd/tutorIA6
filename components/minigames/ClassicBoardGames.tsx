@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { TrophyIcon, UserIcon, CpuChipIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 type GameType = 'menu' | 'oca' | 'damas' | 'trivial';
 
@@ -191,7 +191,7 @@ const OcaGame = () => {
             }, 1500);
         }
         return () => clearTimeout(timeoutId);
-    }, [turn]); 
+    }, [turn, winner, cpuPos]); 
 
     const reset = () => {
         setPlayerPos(1);
@@ -361,7 +361,7 @@ const DamasGame = () => {
 
     const isValidPos = (r: number, c: number) => r >= 0 && r < BOARD_SIZE && c >= 0 && c < BOARD_SIZE;
 
-    const calculateMovesForTurn = () => {
+    const calculateMovesForTurn = useCallback(() => {
         const moves: Move[] = [];
         const isPlayer = turn === 1;
         
@@ -427,7 +427,7 @@ const DamasGame = () => {
             setValidMoves(moves);
             setMandatoryCapture(false);
         }
-    };
+    }, [board, turn]);
 
     const executeMove = (move: Move) => {
         const newBoard = board.map(row => [...row]);
@@ -451,7 +451,7 @@ const DamasGame = () => {
         setSelected(null);
     };
 
-    const makeCpuMove = () => {
+    const makeCpuMove = useCallback(() => {
         if (validMoves.length === 0) {
             setWinner(1);
             return;
@@ -459,7 +459,7 @@ const DamasGame = () => {
         // Randomly pick a valid move (validMoves already adheres to forced capture)
         const move = validMoves[Math.floor(Math.random() * validMoves.length)];
         executeMove(move);
-    };
+    }, [executeMove, validMoves]);
 
     const handleClick = (r: number, c: number) => {
         if (turn !== 1 || winner) return;

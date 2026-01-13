@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { TrophyIcon, StarIcon, UserGroupIcon, BoltIcon, PencilSquareIcon, UserPlusIcon, ShieldCheckIcon, ExclamationTriangleIcon, VideoCameraIcon, XCircleIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 // --- DATA ---
 

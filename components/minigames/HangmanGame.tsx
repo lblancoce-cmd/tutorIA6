@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { UserIcon, UserGroupIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 const CATEGORIES = {
     'K-POP': ['BTS', 'BLACKPINK', 'JUNGKOOK', 'LISA', 'DYNAMITE', 'NEWJEANS', 'STRAYKIDS'],

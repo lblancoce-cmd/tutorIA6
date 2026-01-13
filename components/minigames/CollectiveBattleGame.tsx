@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ShieldCheckIcon, BoltIcon, TrophyIcon, XMarkIcon, CheckIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 interface Player {
     id: number;
@@ -257,5 +257,4 @@ const CollectiveBattleGame: React.FC<Props> = ({ classId, onClose }) => {
         </div>
     );
 };
-// FIX: Added default export
 export default CollectiveBattleGame;

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 const GRID_SIZE = 10;
 const WORD_SETS = {

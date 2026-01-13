@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArrowUturnLeftIcon, PlayIcon, TrashIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 const GRID_SIZE = 5;
 // Directions: 0: N, 1: E, 2: S, 3: W

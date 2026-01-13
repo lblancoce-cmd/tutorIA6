@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { CheckCircleIcon, XCircleIcon, TrophyIcon, SparklesIcon } from '@heroicons/react/24/solid';
-import Celebration from '../Celebration';
+import Celebration from '../Celebration.tsx';
 
 const NATURE_QUESTIONS = [
     {

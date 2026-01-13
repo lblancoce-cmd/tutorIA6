@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenAI, Chat, GenerateContentResponse, Content } from "@google/genai";
-import { Topic, User, Message } from '../types';
+import { Topic, User, Message } from '../types.ts';
 import { ArrowLeftIcon, PaperAirplaneIcon, DocumentArrowDownIcon } from '@heroicons/react/24/solid';
 
 const VAMPY_AVATAR = 'https://cdn-icons-png.flaticon.com/512/3503/3503207.png';
