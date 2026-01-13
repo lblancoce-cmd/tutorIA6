@@ -13,7 +13,7 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
-    <!-- Shim for import maps - REMOVED ASYNC to guarantee load order -->
+    <!-- Shim for import maps -->
     <script src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
     <!-- Babel for in-browser TSX/JSX transpilation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -30,10 +30,10 @@
   }
 }
 </script>
-    <!-- Main app script - DEFERRED to ensure shims/babel are ready -->
-    <script type="text/babel" data-type="module" src="index.tsx" defer></script>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
+    <!-- Main app script moved to end of body to ensure everything is loaded first -->
+    <script type="text/babel" data-type="module" src="index.tsx"></script>
 </body>
 </html>
