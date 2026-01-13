@@ -14,7 +14,7 @@
         }
     </script>
     <!-- Shim for import maps -->
-    <script src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
     <!-- Babel for in-browser TSX/JSX transpilation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="importmap">
@@ -34,6 +34,6 @@
 <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
     <!-- Note the type change to text/babel to enable in-browser transpilation -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+    <script type="text/babel" data-type="module" src="index.tsx"></script>
 </body>
 </html>
