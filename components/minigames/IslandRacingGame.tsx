@@ -364,4 +364,3 @@ const IslandRacingGame = () => {
 };
 
 export default IslandRacingGame;
-    

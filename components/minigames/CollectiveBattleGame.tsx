@@ -194,13 +194,18 @@ const CollectiveBattleGame: React.FC<Props> = ({ classId, onClose }) => {
                                             : 'bg-gray-200 hover:scale-110 cursor-pointer'
                                         }
                                         ${attackerId === player.id ? 'bg-red-600 border-red-400 text-white scale-110 ring-4 ring-red-900 z-20' : ''}
-                                        ${phase === 'select_target' && player.status === 'alive' && player.id !== attackerId ? 'hover:bg-red-200 border-red-200 animate-pulse' : ''}
-                                        ${player.hasShield ? 'ring-4 ring-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.6)]' : ''}
+                                        ${phase === 'select_target' && player.status === 'alive' && player.id !== attackerId ? 'border-blue-400 hover:bg-blue-200' : ''}
                                     `}
                                 >
+                                    {player.status === 'alive' && player.hasShield && (
+                                        <ShieldCheckIcon className="absolute -top-2 -right-2 w-6 h-6 text-blue-400 bg-gray-900 rounded-full p-0.5" />
+                                    )}
+                                    {player.battlesWon > 0 && (
+                                        <span className="absolute -bottom-2 -left-1 text-xs bg-yellow-500 text-black font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-white">
+                                            {player.battlesWon}
+                                        </span>
+                                    )}
                                     {player.id}
-                                    {player.hasShield && <ShieldCheckIcon className="absolute -top-2 -right-2 w-6 h-6 text-blue-400 bg-gray-900 rounded-full" />}
-                                    {player.status === 'eliminated' && <XMarkIcon className="absolute inset-0 m-auto w-8 h-8 text-gray-500 opacity-50" />}
                                 </button>
                             ))}
                         </div>
@@ -208,71 +213,49 @@ const CollectiveBattleGame: React.FC<Props> = ({ classId, onClose }) => {
                 )}
 
                 {phase === 'battle' && currentProblem && (
-                    <div className="w-full max-w-3xl bg-gray-800 border-4 border-gray-600 rounded-2xl p-8 shadow-2xl animate-zoom-in relative">
-                        {/* Battle Header */}
-                        <div className="flex justify-between items-center mb-12">
-                            {/* Attacker */}
-                            <div className="flex flex-col items-center">
-                                <div className={`w-24 h-24 rounded-full bg-red-600 flex items-center justify-center text-4xl font-bold text-white border-4 border-red-400 mb-2 ${battleScore.a > battleScore.d ? 'scale-110' : ''}`}>
-                                    {attackerId}
-                                </div>
-                                <div className="flex gap-1">
-                                    {[...Array(3)].map((_, i) => (
-                                        <div key={i} className={`w-4 h-4 rounded-full ${i < battleScore.a ? 'bg-yellow-400' : 'bg-gray-600'}`}></div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="text-4xl font-black text-gray-500 italic">VS</div>
-
-                            {/* Defender */}
-                            <div className="flex flex-col items-center">
-                                <div className={`w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center text-4xl font-bold text-white border-4 border-blue-400 mb-2 ${battleScore.d > battleScore.a ? 'scale-110' : ''}`}>
-                                    {defenderId}
-                                </div>
-                                <div className="flex gap-1">
-                                    {[...Array(3)].map((_, i) => (
-                                        <div key={i} className={`w-4 h-4 rounded-full ${i < battleScore.d ? 'bg-yellow-400' : 'bg-gray-600'}`}></div>
-                                    ))}
-                                </div>
-                            </div>
+                <div className="text-center bg-gray-800 p-8 rounded-xl shadow-2xl border-2 border-gray-700 animate-fade-in w-full max-w-2xl">
+                    <div className="flex justify-between items-center mb-6">
+                        <div className="text-center">
+                            <div className="text-4xl font-bold text-red-500">{attackerId}</div>
+                            <div className="text-sm text-gray-400">ATACANTE</div>
                         </div>
-
-                        {/* Problem */}
-                        <div className="bg-black p-6 rounded-xl text-center mb-8 border border-gray-500">
-                            <p className="text-gray-400 text-sm uppercase tracking-widest mb-2">Operación</p>
-                            <div className="text-6xl font-mono font-bold text-white tracking-wider">
-                                {currentProblem.q} = ?
-                            </div>
-                            <div className="mt-4 text-2xl text-green-400 font-bold animate-pulse">
-                                Solución: {currentProblem.a}
-                            </div>
-                        </div>
-
-                        {/* Controls */}
-                        <div className="grid grid-cols-2 gap-4">
-                            <button 
-                                onClick={() => handlePoint('attacker')}
-                                className="bg-red-900 hover:bg-red-700 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center border border-red-500 transition-all active:scale-95"
-                            >
-                                <CheckIcon className="w-6 h-6 mr-2" /> Punto para {attackerId}
-                            </button>
-                            <button 
-                                onClick={() => handlePoint('defender')}
-                                className="bg-blue-900 hover:bg-blue-700 text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center border border-blue-500 transition-all active:scale-95"
-                            >
-                                <CheckIcon className="w-6 h-6 mr-2" /> Punto para {defenderId}
-                            </button>
-                        </div>
-
-                        <div className="mt-4 text-center text-gray-500 text-xs">
-                            * El profesor/árbitro debe pulsar el botón del alumno que contestó correctamente primero.
+                        <div className="text-2xl font-bold text-white">VS</div>
+                        <div className="text-center">
+                            <div className="text-4xl font-bold text-blue-500">{defenderId}</div>
+                            <div className="text-sm text-gray-400">DEFENSOR</div>
                         </div>
                     </div>
-                )}
+
+                    <div className="bg-black/50 p-4 rounded-lg mb-6">
+                        <p className="text-lg text-white mb-2">Pregunta:</p>
+                        <p className="text-4xl font-mono font-bold text-yellow-300">{currentProblem.q} = ?</p>
+                    </div>
+
+                    <div className="flex justify-center items-center gap-8 mb-6">
+                        <button 
+                            onClick={() => handlePoint('attacker')}
+                            className="text-red-500 font-bold border-2 border-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition-colors"
+                        >
+                            Punto para {attackerId}
+                        </button>
+                        <button 
+                            onClick={() => handlePoint('defender')}
+                            className="text-blue-500 font-bold border-2 border-blue-500 px-6 py-2 rounded-full hover:bg-blue-500 hover:text-white transition-colors"
+                        >
+                            Punto para {defenderId}
+                        </button>
+                    </div>
+
+                    <div className="flex justify-center items-center text-4xl font-bold">
+                        <span className="text-red-500">{battleScore.a}</span>
+                        <span className="text-white mx-4">-</span>
+                        <span className="text-blue-500">{battleScore.d}</span>
+                    </div>
+                </div>
+            )}
             </div>
         </div>
     );
 };
-
+// FIX: Added default export
 export default CollectiveBattleGame;

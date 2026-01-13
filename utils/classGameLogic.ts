@@ -1,3 +1,4 @@
+
 // Simple persistence for class progress
 // In a real app, this would be a database
 
