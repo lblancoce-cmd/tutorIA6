@@ -30,10 +30,10 @@
   }
 }
 </script>
+    <!-- Main app script - DEFERRED to ensure shims/babel are ready -->
+    <script type="text/babel" data-type="module" src="index.tsx" defer></script>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-    <!-- Note the type change to text/babel to enable in-browser transpilation -->
-    <script type="text/babel" data-type="module" src="index.tsx"></script>
 </body>
 </html>
