@@ -205,6 +205,33 @@ export const DEFAULT_TOPICS: Topic[] = [
         questions: []
     },
     {
+        id: '9',
+        title: 'Ciencias Naturales',
+        description: 'Seres vivos, ecosistemas de España y el cuerpo humano.',
+        initialMessage: '¡Hola! Soy Vampy, tu explorador de la naturaleza. ¿Quieres aprender sobre los volcanes, los animales de Canarias o cómo funciona tu corazón? ¡Pregúntame!',
+        icon: '🔬',
+        rewardIcon: '🌿',
+        questions: []
+    },
+    {
+        id: '10',
+        title: 'Arte y Música',
+        description: 'Pintores famosos, instrumentos musicales y el arte en Canarias.',
+        initialMessage: '¡Soy Vampy, tu artista nocturno! ¿Hablamos de Goya, del timple canario o de cómo César Manrique transformó Lanzarote? ¡Estoy listo para crear!',
+        icon: '🎨',
+        rewardIcon: '🎶',
+        questions: []
+    },
+    {
+        id: '11',
+        title: 'Deportes',
+        description: 'Fútbol, baloncesto y deportistas legendarios de España y Canarias.',
+        initialMessage: '¡Vampy se pone la equipación! ¿Quieres saber quiénes son los mejores deportistas canarios, las reglas del fútbol o curiosidades de los Juegos Olímpicos? ¡A jugar!',
+        icon: '⚽',
+        rewardIcon: '🏆',
+        questions: []
+    },
+    {
         id: 'interactive_map',
         title: 'Mapa Interactivo de Canarias',
         description: 'Explora las islas, sus capitales, monumentos y secretos.',
